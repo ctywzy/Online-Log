@@ -31,7 +31,7 @@
        <div class="navbar-header">
           <a class="navbar-brand"><?= $list[0]['tem2']?></a>
        </div>
-       <div class="navbar-header col-sm-3" >
+       <div class="navbar-header col-sm-2" >
           <a class="navbar-brand"><?= $list[0]['win'][0] . ' ' . $list[0]['win_speed']?></a>
        </div>
        <div class="navbar-header" align="right">

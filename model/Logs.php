@@ -50,5 +50,27 @@
 			return $logs;
 		}
 
+        public function get_tnlogs($date){
+            $sql = "select user_email, count(content) num from logs where date = ? group by user_email";
+            $statement = $this->pdo->prepare($sql);
+            $statement->execute([$date]);
+            return $statement->fetchAll();
+        }
+
+
+		public function find_by_date($date){
+		    $sql = "select * from logs where date = ?";
+		    $statement = $this->pdo->prepare($sql);
+		    $statement->execute([$date]);
+		    return $statement->fetchAll();
+        }
+
+        public function get_log_dateuser($date,$email){
+		    $sql = "select * from logs where date = ? and user_email = ?";
+		    $statement = $this->pdo->prepare($sql);
+		    $statement->execute([$date,$email]);
+		    return $statement->fetchAll();
+        }
+
 	}
 ?>

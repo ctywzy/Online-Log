@@ -87,12 +87,13 @@
 
 		}
 
-		public function get_tnlogs($date){
-			$sql = "select user_email, count(content) num from logs where date = ? group by user_email";
-			$statement = $this->pdo->prepare($sql);
-			$statement->execute([$date]);
-			return $statement->fetchAll();
-		}
+        public function  find_keyuser($keyword){
+		    $sql = "select * from users where uemail like ?";
+		    $statement = $this->pdo->prepare($sql);
+		    $keyword = "%".$keyword."%";
+		    $statement->execute([$keyword]);
+		    return $statement->fetchAll();
+        }
 
 		
 

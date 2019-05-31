@@ -9,25 +9,29 @@
 </head>
 <body background ="#31C5BE">
   <nav class="navbar navbar-default" role="navigation">
-       <div class="navbar-header col-sm-3">
+       <div class="navbar-header col-sm-2">
           <a class="navbar-brand" href="#">Online | Memo</a>
        </div>
-       <div class="navbar-header col-sm-3">
-         <form action="/index.php?r=login/login_page" method="POST" class="navbar-form navbar-left">
-             <button type="submit" class="btn btn-info">退出</button>
+      <div class="navbar-header col-sm-3">
+          <a class="navbar-brand" href="#">Admin</a>
+
+      </div>
+      <div class="navbar-header col-sm-4">
+          <form action="/index.php?r=Admin/do_tip" method="POST" class="navbar-form navbar-left">
+              <button type="submit" class="btn btn-info">提醒</button>
+          </form>
+      </div>
+       <div class="navbar-header col-sm-1">
+         <form action="/index.php?r=Admin/home_page" method="POST" class="navbar-form navbar-left">
+             <button type="submit" class="btn btn-info">用户列表</button>
           </form>    
        </div>
-       <div class="navbar-header col-sm-3">
-         <form action="/index.php?r=Admin/do_tip" method="POST" class="navbar-form navbar-left">
-             <button type="submit" class="btn btn-info">提醒</button>
-          </form>    
-       </div>
-       <div class="navbar-header col-sm-3">
-          <form class="navbar-form navbar-right" role="search" action="/index.php?r=Admin/do_search" method="POST">
-              <input type="text" class="form-control" placeholder="搜索格式yyyy-mm-dd"  name="date">
-              <button type="submit" class="btn btn-info">查找备忘信息</button>
-          </form>    
-       </div>
+
+      <div class="navbar-header col-sm-1">
+          <form action="/index.php?r=login/login_page" method="POST" class="navbar-form navbar-left">
+              <button type="submit" class="btn btn-info">退出登录</button>
+          </form>
+      </div>
     </nav>
     <?php
       //echo $getdate;
@@ -40,10 +44,10 @@
            <th style="text-align: center;width: 400px" class="col-sm-3">邮箱</th>
            <th style="text-align: center;width: 400px" class="col-sm-8">条数</th>
         </tr>
-        <?php foreach ($users as $user) : ?>
+        <?php foreach ($lognum as $log) : ?>
           <tr class="warning">
-            <td style="text-align: center;font-size: 25px;width: 400px" ><?= $user['user_email']  ?></td>
-            <td style="text-align: center;font-size: 25px;width: 400px"><?= $user['num'] ?></td>            
+            <td style="text-align: center;font-size: 25px;width: 400px" ><?= $log['user_email']  ?></td>
+            <td style="text-align: center;font-size: 25px;width: 400px"><?= $log['num'] ?></td>
           </tr>
             
         <?php endforeach; ?>

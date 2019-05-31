@@ -70,7 +70,6 @@ header("Content-Type: text/html;charset=utf-8");
 	        $smtp = new Smtp($MailServer, $MailPort, $smtpuser, $smtppass, true); 
 	        $smtp->debug = false; 
 	        $mailType = "HTML"; //信件类型，文本:text；网页：HTML
-	        $email = $uemail;  //收件人邮箱
 	        $emailTitle = "您好"; //邮件主题
 	        $emailBody = "请点击下方链接确定修改密码<br/><a href='http://local.final.com/index.php?r=Login/check_mod/$token'>$token</a>
 	        <br/>如果以上链接无法点击，请将它复制到你的浏览器地址栏中进入访问，或重新请求修改密码。<br/>如果此次验证请求非你本人所发，请忽略本邮件。<br/>";
@@ -91,5 +90,6 @@ header("Content-Type: text/html;charset=utf-8");
 			$UserModel->update_status($token_get);
 			header("Location: /index.php");
 		}
+
 	}
 ?>
