@@ -177,7 +177,9 @@
                   echo "<td bgcolor='#F5F5F5'></td>";
                 }
                 for($k=1;$k<=$days;$k++){
+                    if($k<10) $k="0".$k;
                   if($k==$day && $year==date('Y') && $month==date('m') ){
+
             ?>
                   <form action="/index.php?r=Visitor/to_write" method="POST"> 
                       <td align="center" bgcolor="#D9534F" >

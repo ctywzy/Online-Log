@@ -12,6 +12,7 @@
 			$week=date("w"); // 每个月的一号是星期几
 			$days=date("t"); //每个月的总天数
 			$day=date("d"); //获取今天是几号
+
 			include('view/Visitor/Calendar_show.php');
 		}
 
@@ -61,18 +62,10 @@
 			$user = $_SESSION['user'];
 			$LogsModel = new Logs();
 			$logs = $LogsModel->search_logs($keyword,$user['uemail'],$getdate);
-			
 			include('view/Visitor/writelogs.php');
 		}
 		public function  to_weather()
         {
-
-            $getdate = $_POST['getdate'];
-            if (!session_id()) session_start();
-            $user = $_SESSION['user'];
-            $LogsModel = new Logs();
-            $logs = $LogsModel->find_exact($getdate,$user['uemail']);
-            //var_export($logs);
             include('view/Visitor/Weekweather.php');
         }
         public function  change_uname()
@@ -92,8 +85,6 @@
                 echo '<script>alert("密码错误请重新输入！");</script>';
             }
             $this->home_page();
-
-
         }
 	}
 ?>

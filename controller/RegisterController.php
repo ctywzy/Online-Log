@@ -44,7 +44,7 @@
 		        $smtp->debug = false; 
 		        $mailType = "HTML"; //信件类型，文本:text；网页：HTML
 		        $emailTitle = "您好"; //邮件主题
-		        $token = md5($uname.$password);
+		        //$token = md5($uname.$password);
 		        $emailBody = "亲爱的".$uname."：<br/>感谢您在我站注册了新帐号。<br/>。<br/><a href='http://local.final.com/'>Welcome!</a><br/>如果以上链接无法点击，请将它复制到你的浏览器地址栏中进入访问。<br/>如果此次激活请求非你本人所发，请忽略本邮件。<br/><p style='text-align:right'>-------- 在线便签组 敬上</p>";
 
 		        $rs = $smtp->sendmail($uemail, $smtpMail, $emailTitle, $emailBody, $mailType);

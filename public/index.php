@@ -18,8 +18,9 @@ if ($route) {
 
 	
 	if(!in_array(ucfirst(strtolower($r0)), ['Register', 'Login'])){
+        $user = $_SESSION['user'];
 		if($user['role'] == "Admin"){
-		    $user = $_SESSION['user'];
+
 			if(ucfirst(strtolower($r0)) != "Admin"){
 				echo '<script>alert("权限不足");window.history.go(-1);</script>';
 				exit;

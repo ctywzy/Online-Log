@@ -1,194 +1,122 @@
-
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
+<style>
+    body{background:url(img);}
+</style>
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Jekyll v3.8.5">
-    <title>Dashboard Template · Bootstrap</title>
-
-    <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/dashboard/">
-
-    <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet" >
-
-
+    <meta charset='utf-8'>
+    <title>未来7天</title>
     <style>
-        .bd-placeholder-img {
-            font-size: 1.125rem;
-            text-anchor: middle;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
+        #divContainer{
+            margin-top: 60px;
+            text-align: center;
         }
-
-        @media (min-width: 768px) {
-            .bd-placeholder-img-lg {
-                font-size: 3.5rem;
-            }
+        #cv{
+            width: 800px;
+            height: 400px;
+            border-bottom: 4px solid #beffa2;
+            border-left: 4px solid #beffa2;
         }
     </style>
-    <!-- Custom styles for this template -->
-    <link href="css/dashboard.css" rel="stylesheet">
 </head>
 <body>
+<?php
+error_reporting(E_ALL || ~E_NOTICE);
+function findNum($str='')
+{
+    $str=trim($str);
+    if(empty($str)){return '';}
+    $result='';
+    for($i=0;$i<=strlen($str);$i++)
+    {
+        if(is_numeric($str[$i]))
+        {
+            $result.=$str[$i];
+        }
+    }
+    return $result;
+}
+$version = 'v1';//v1: 7天 / v2: 15天  / v3: 40天
+$url = 'https://www.tianqiapi.com/api/?version=' . $version;
+$data = file_get_contents($url);
+$json = json_decode($data, true);
+$list = $json['data'];
+$tempa=array();
+for($i=0;$i<7;$i++)
+{
+    $tempa[$i]=(int)findNum($list[$i]['tem']);
+}
 
-<div class="container-fluid">
-    <div class="row">
-        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                <h1 class="h2">Dashboard</h1>
-                <div class="btn-toolbar mb-2 mb-md-0">
-                    <div class="btn-group mr-2">
-                        <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
-                        <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
-                    </div>
-                    <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
-                        <span data-feather="calendar"></span>
-                        This week
-                    </button>
-                </div>
-            </div>
-
-            <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
-
-            <h2>Section title</h2>
-            <div class="table-responsive">
-                <table class="table table-striped table-sm">
-                    <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Header</th>
-                        <th>Header</th>
-                        <th>Header</th>
-                        <th>Header</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>1,001</td>
-                        <td>Lorem</td>
-                        <td>ipsum</td>
-                        <td>dolor</td>
-                        <td>sit</td>
-                    </tr>
-                    <tr>
-                        <td>1,002</td>
-                        <td>amet</td>
-                        <td>consectetur</td>
-                        <td>adipiscing</td>
-                        <td>elit</td>
-                    </tr>
-                    <tr>
-                        <td>1,003</td>
-                        <td>Integer</td>
-                        <td>nec</td>
-                        <td>odio</td>
-                        <td>Praesent</td>
-                    </tr>
-                    <tr>
-                        <td>1,003</td>
-                        <td>libero</td>
-                        <td>Sed</td>
-                        <td>cursus</td>
-                        <td>ante</td>
-                    </tr>
-                    <tr>
-                        <td>1,004</td>
-                        <td>dapibus</td>
-                        <td>diam</td>
-                        <td>Sed</td>
-                        <td>nisi</td>
-                    </tr>
-                    <tr>
-                        <td>1,005</td>
-                        <td>Nulla</td>
-                        <td>quis</td>
-                        <td>sem</td>
-                        <td>at</td>
-                    </tr>
-                    <tr>
-                        <td>1,006</td>
-                        <td>nibh</td>
-                        <td>elementum</td>
-                        <td>imperdiet</td>
-                        <td>Duis</td>
-                    </tr>
-                    <tr>
-                        <td>1,007</td>
-                        <td>sagittis</td>
-                        <td>ipsum</td>
-                        <td>Praesent</td>
-                        <td>mauris</td>
-                    </tr>
-                    <tr>
-                        <td>1,008</td>
-                        <td>Fusce</td>
-                        <td>nec</td>
-                        <td>tellus</td>
-                        <td>sed</td>
-                    </tr>
-                    <tr>
-                        <td>1,009</td>
-                        <td>augue</td>
-                        <td>semper</td>
-                        <td>porta</td>
-                        <td>Mauris</td>
-                    </tr>
-                    <tr>
-                        <td>1,010</td>
-                        <td>massa</td>
-                        <td>Vestibulum</td>
-                        <td>lacinia</td>
-                        <td>arcu</td>
-                    </tr>
-                    <tr>
-                        <td>1,011</td>
-                        <td>eget</td>
-                        <td>nulla</td>
-                        <td>Class</td>
-                        <td>aptent</td>
-                    </tr>
-                    <tr>
-                        <td>1,012</td>
-                        <td>taciti</td>
-                        <td>sociosqu</td>
-                        <td>ad</td>
-                        <td>litora</td>
-                    </tr>
-                    <tr>
-                        <td>1,013</td>
-                        <td>torquent</td>
-                        <td>per</td>
-                        <td>conubia</td>
-                        <td>nostra</td>
-                    </tr>
-                    <tr>
-                        <td>1,014</td>
-                        <td>per</td>
-                        <td>inceptos</td>
-                        <td>himenaeos</td>
-                        <td>Curabitur</td>
-                    </tr>
-                    <tr>
-                        <td>1,015</td>
-                        <td>sodales</td>
-                        <td>ligula</td>
-                        <td>in</td>
-                        <td>libero</td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-        </main>
-    </div>
+?>
+<div id="divContainer">
+    一周天气走势<br/>
+    <canvas id="cv">你的设备不支持图表数据显示</canvas>
 </div>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script>window.jQuery || document.write('<script src="js/jquery-slim.min.js"><\/script>')</script><script src="js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
-<script src="js/dashboard.js"></script></body>
+<script>
+    (function(){
+        window.onload = function(){
+            //数据源
+            var dict = [
+                {x: "<?= substr($list[0]['date'],5,5);?>", y: <?=$tempa[0]?>},
+                {x: "<?= substr($list[1]['date'],5,5);?>", y: <?=$tempa[1]?>},
+                {x: "<?= substr($list[2]['date'],5,5);?>", y: <?=$tempa[2]?>},
+                {x: "<?= substr($list[3]['date'],5,5);?>", y: <?=$tempa[3]?>},
+                {x: "<?= substr($list[4]['date'],5,5);?>", y: <?=$tempa[4]?>},
+                {x: "<?= substr($list[5]['date'],5,5);?>", y: <?=$tempa[5]?>},
+                {x: "<?= substr($list[6]['date'],5,5);?>", y: <?=$tempa[6]?>},
+            ]
+            //数据源提取
+            var len = dict.length;
+            var xArr = [], yArr = [], tmp_yArr = [];
+            for(var i=0; i<len; i++){
+                xArr.push(i * 40);
+                tmp_yArr.push(dict[i].y);
+            }
+            var tmp_minY = Math.min.apply(Math, tmp_yArr);//最小值
+            var tmp_maxY = Math.max.apply(Math, tmp_yArr);//最大值
+            if(tmp_maxY - tmp_minY <= 100){
+                for(var i=0; i<len; i++){
+                    yArr.push(tmp_yArr[i] - tmp_minY + 50);//与最小的做比较
+                }
+            }
+            else{//如果相差太大会导致图表不美观
+                for(var i=0; i<len; i++){
+                    yArr.push(tmp_yArr[i] / 500);
+                }
+            }
+            var minY = Math.min.apply(Math, yArr);
+            var maxY = Math.max.apply(Math, yArr);
+            //canvas 准备
+            var canvas = document.getElementById("cv");//获取canvas画布
+            var ctx = canvas.getContext("2d");
+            //画折线
+            for(var i=0 ;i<len; i++){
+                var x = xArr[i];
+                var y = maxY - yArr[i] + minY;
+                if(i === 0){
+                    ctx .moveTo(x+1, y+1);
+                }
+                else{
+                    ctx .lineTo(x+1, y+1);
+                }
+            }
+            ctx .stroke();
+            //画点
+            for(var i=0; i<len; i++){
+                var x = xArr[i];
+                var y = maxY - yArr[i] + minY;
+                var xMemo = dict[i].x;
+                var yMemo = dict[i].y+"℃";
+                ctx.beginPath();
+                ctx.fillStyle = "#273bff";
+                ctx.arc(x, y, 5, 0, 5*Math.PI);//画点
+                ctx.fill();
+                ctx.fillStyle = "#f9572b";
+                ctx.fillText(yMemo, x + 3, y - 10);
+                ctx.fillText(xMemo, x + 3, canvas.height - 10, 40); //画文字
+            }
+        }
+    })();
+</script>
+</body>
 </html>

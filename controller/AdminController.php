@@ -23,6 +23,7 @@
 		}
 
 		public function today_logs(){
+
 			$date = $this->get_date();
 			$LogsModel = new Logs();
 			$lognum = $LogsModel->get_tnlogs($date);
@@ -40,6 +41,7 @@
 		}
 
         public function send($uemail,$number,$Allcontent){
+	        //echo "sendhello";
             $MailServer = "smtp.exmail.qq.com"; //SMTP服务器
             $MailPort = 25; //SMTP服务器端口
             $smtpMail = "wangzu@phpstudywzy.xyz"; //SMTP服务器的用户邮箱
@@ -49,10 +51,11 @@
             $smtp = new Smtp($MailServer, $MailPort, $smtpuser, $smtppass, true);
             $smtp->debug = false;
             $mailType = "HTML"; //信件类型，文本:text；网页：HTML
-            $email = $uemail;  //收件人邮箱
+            //$email = $uemail;  //收件人邮箱
             $emailTitle = "亲爱的用户您好，以下是您今天的备忘"; //邮件主题
             $emailBody = $Allcontent;
             $rs = $smtp->sendmail($uemail, $smtpMail, $emailTitle, $emailBody, $mailType);
+            //echo $rs;
 
         }
 
