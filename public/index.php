@@ -15,10 +15,11 @@ if ($route) {
 	$r0  = $partition[0];
 	$class_name = ucfirst(strtolower($r0))."Controller";
 	$function_name = $partition[1];
-$user = $_SESSION['user'];
+
 	
 	if(!in_array(ucfirst(strtolower($r0)), ['Register', 'Login'])){
 		if($user['role'] == "Admin"){
+		    $user = $_SESSION['user'];
 			if(ucfirst(strtolower($r0)) != "Admin"){
 				echo '<script>alert("权限不足");window.history.go(-1);</script>';
 				exit;

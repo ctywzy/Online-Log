@@ -5,6 +5,19 @@
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/js/jquery.js">
     <link rel="stylesheet" type="text/css" href="/js/bootstrap.min.js">
+    <link rel="stylesheet" href="css/swipebox.min.css" type="text/css">
+
+    <!-- Custom Fonts -->
+
+
+    <!-- Plugin CSS -->
+    <link rel="stylesheet" href="css/owl.carousel.css" type="text/css">
+    <link rel="stylesheet" href="css/owl.theme.css" type="text/css">
+    <link rel="stylesheet" href="css/owl.transitions.css" type="text/css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/animate.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css"
 </head>
 
 <body>
@@ -16,10 +29,18 @@
       $list = $json['data'];
     ?>
     <nav class="navbar navbar-default" role="navigation">
-       <div class="navbar-header col-sm-4">
+       <div class="navbar-header ">
           <a class="navbar-brand" href="#">Online | Memo</a>
        </div>
-       <div class="navbar-header col-sm-">
+       <div class="navbar-header ">
+            <a class="navbar-brand" href="#"><?="用户名".$_SESSION['user']['uname']?></a>
+        </div>
+        <div class="navbar-header" >
+            <div class="navbar-btn">
+                <button type="submit" class="btn btn-info" data-toggle="modal" data-target="#myUname">修改用户名</button>
+            </div>
+        </div>
+       <div class="navbar-header col-xs-offset-1">
           <a class="navbar-brand" style="color: red"><?="今天是".$list[0]['date']?></a>
        </div>
        <div class="navbar-header">
@@ -31,7 +52,7 @@
        <div class="navbar-header">
           <a class="navbar-brand"><?= $list[0]['tem2']?></a>
        </div>
-       <div class="navbar-header col-sm-2" >
+       <div class="navbar-header " >
           <a class="navbar-brand"><?= $list[0]['win'][0] . ' ' . $list[0]['win_speed']?></a>
        </div>
        <div class="navbar-header" align="right">
@@ -44,6 +65,43 @@
              <button type="submit" class="btn btn-info">切换用户</button>
           </form>    
        </div>
+       <div class="navbar-header " align="right">
+            <form action="/index.php?r=Visitor/to_weather" method="POST" class="navbar-form navbar-left">
+                <button type="submit" class="btn btn-info">一周天气状态</button>
+            </form>
+        </div>
+        <form action="index.php?r=Visitor/change_uname" method="POST">
+            <div class="modal fade" id="myUname" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="row">
+                            <div class="col-md-offset-1 col-md-10 pt25">
+                                <div class="form-group">
+                                    <div class="inp-icon user">
+                                        <input type="text" class="form-control inp" placeholder="新的用户名" id="uname" name="uname" required="">
+                                    </div>
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                            </div>
+                            <p class="help-block text-danger"></p>
+                            <div class="col-md-offset-1 col-md-10">
+                                <div class="form-group">
+                                    <div class="inp-icon user">
+                                        <input type="password" class="form-control inp" placeholder="输入密码确认修改"  name="password"  required="">
+                                    </div>
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        </br>
+                        <div align="center">
+                            <button type="submit" class="button small"  >修改</button>
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal -->
+            </div>
+        </form>
     </nav>
     <table class="table table-bordered">
   
@@ -156,6 +214,20 @@
 
 
     </table>
-    
+    <!-- jQuery -->
+    <script data-cfasync="false" src="js/email-decode.min.js"></script><script src="js/jquery.js"></script>
+
+    <!-- Bootstrap JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="js/sticky.js"></script>
+    <script src="js/jquery.swipebox.min.js"></script>
+    <script src="js/sorting.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="js/current.js"></script>
 </body>
 </html>

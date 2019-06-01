@@ -15,7 +15,7 @@ create table logs(
 	id integer auto_increment primary key,
 	user_email varchar(100) not null,
 	content varchar(10000) not null,
-	ltime varchar(50) not null;
+	ltime varchar(50) not null,
 	create_on timestamp
 );
 
@@ -23,8 +23,8 @@ create table puser(
 	id integer auto_increment primary key,
 	pemail varchar(50) not null,
 	password varchar(50) not null,
-	token varchar(100);
+	token varchar(100),
 	status tinyint(1)
-)
+);
 
 insert into users(uname,password,uemail,role) values("Admin","Wzy02130.0","wangzu@phpstudywzy.xyz","Admin");

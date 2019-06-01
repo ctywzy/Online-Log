@@ -1,7 +1,7 @@
 <?php
-	include("/model/Logs.php");
-	include('/model/User.php');
-	include('/model/Smtp.php');
+	include("model/Logs.php");
+	include('model/User.php');
+	include('model/Smtp.php');
 	header("Content-Type:text/html;charset=utf-8");
 	date_default_timezone_set("PRC");
 	class VisitorController{
@@ -64,5 +64,36 @@
 			
 			include('view/Visitor/writelogs.php');
 		}
+		public function  to_weather()
+        {
+
+            $getdate = $_POST['getdate'];
+            if (!session_id()) session_start();
+            $user = $_SESSION['user'];
+            $LogsModel = new Logs();
+            $logs = $LogsModel->find_exact($getdate,$user['uemail']);
+            //var_export($logs);
+            include('view/Visitor/Weekweather.php');
+        }
+        public function  change_uname()
+        {
+            $uname=$_POST['uname'];
+            $password=$_POST['password'];
+            if (!session_id()) session_start();
+            $Ypassword=$_SESSION['user']['password'];
+            $UserModel= new User();
+            if($password==$Ypassword)
+            {
+                $UserModel->update_uname($uname,$_SESSION['user']['uemail']);
+                $_SESSION['user']['uname'] = $uname;
+            }
+            else
+            {
+                echo '<script>alert("密码错误请重新输入！");</script>';
+            }
+            $this->home_page();
+
+
+        }
 	}
 ?>

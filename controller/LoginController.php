@@ -1,8 +1,8 @@
 <?php
 header("Content-Type: text/html;charset=utf-8");
-	include("/model/Logs.php");
-	include('/model/User.php');
-	include('/model/Smtp.php');
+	include('model/Logs.php');
+	include('model/User.php');
+	include('model/Smtp.php');
 	class LoginController{
 		public function login_page() {
 			include('view/login.php');

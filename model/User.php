@@ -95,7 +95,14 @@
 		    return $statement->fetchAll();
         }
 
-		
+		public function update_uname($uname, $uemail){
+		    $sql = "update users set uname = ? where uemail = ?";
+		    $statement = $this->pdo->prepare($sql);
+		    $statement->execute([$uname,$uemail]);
+
+
+
+        }
 
 	}
 ?>
