@@ -15,7 +15,7 @@ create table logs(
 	id integer auto_increment primary key,
 	user_email varchar(100) not null,
 	content varchar(10000) not null,
-	ltime varchar(50) not null,
+	date varchar(50) not null,
 	create_on timestamp
 );
 
