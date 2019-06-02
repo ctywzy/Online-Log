@@ -55,14 +55,14 @@ header("Content-Type: text/html;charset=utf-8");
 			$token = md5($uemail.$password);
 
 			$UserModel = new User();
-			$bool = $UserModel->exist_judge2($uemail);
+			$bool = $UserModel->exist_judge2($token);
 			if($bool==true){
 				$UserModel->insert_user2($uemail,$password,$token);
 			}
 			
 			
-			$MailServer = "smtp.exmail.qq.com"; //SMTP服务器
-	        $MailPort = 25; //SMTP服务器端口
+			$MailServer = "ssl://smtp.exmail.qq.com"; //SMTP服务器
+	        $MailPort = 465; //SMTP服务器端口
 	        $smtpMail = "wangzu@phpstudywzy.xyz"; //SMTP服务器的用户邮箱
 	        $smtpuser = "wangzu@phpstudywzy.xyz"; //SMTP服务器的用户帐号
 	        $smtppass = "Wzy02130.0"; //SMTP服务器的用户密码
@@ -71,7 +71,7 @@ header("Content-Type: text/html;charset=utf-8");
 	        $smtp->debug = false; 
 	        $mailType = "HTML"; //信件类型，文本:text；网页：HTML
 	        $emailTitle = "您好"; //邮件主题
-	        $emailBody = "请点击下方链接确定修改密码<br/><a href='http://local.final.com/index.php?r=Login/check_mod/$token'>$token</a>
+	        $emailBody = "请点击下方链接确定修改密码<br/><a href='http://47.101.206.167/index.php?r=Login/check_mod/$token'>$token</a>
 	        <br/>如果以上链接无法点击，请将它复制到你的浏览器地址栏中进入访问，或重新请求修改密码。<br/>如果此次验证请求非你本人所发，请忽略本邮件。<br/>";
 	        $rs = $smtp->sendmail($uemail, $smtpMail, $emailTitle, $emailBody, $mailType);
 		        
@@ -86,6 +86,7 @@ header("Content-Type: text/html;charset=utf-8");
 		}
 
 		public function check_mod($token_get){//修改密码
+		    //echo $token_get;
 			$UserModel = new User();
 			$UserModel->update_status($token_get);
 			header("Location: /index.php");

@@ -42,8 +42,8 @@
 
         public function send($uemail,$number,$Allcontent){
 	        //echo "sendhello";
-            $MailServer = "smtp.exmail.qq.com"; //SMTP服务器
-            $MailPort = 25; //SMTP服务器端口
+            $MailServer = "ssl://smtp.exmail.qq.com"; //SMTP服务器
+            $MailPort = 465; //SMTP服务器端口
             $smtpMail = "wangzu@phpstudywzy.xyz"; //SMTP服务器的用户邮箱
             $smtpuser = "wangzu@phpstudywzy.xyz"; //SMTP服务器的用户帐号
             $smtppass = "Wzy02130.0"; //SMTP服务器的用户密码

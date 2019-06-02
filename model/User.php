@@ -48,10 +48,10 @@
 			$users = $statement->fetchAll();
 			return $users;
 		}
-		public function exist_judge2($uemail){//判断是否已经申请
-			$sql = "select * from puser where pemail = ?";
+		public function exist_judge2($token){//判断是否已经申请
+			$sql = "select * from puser where token = ?";
 			$statement = $this->pdo->prepare($sql);
-			$statement->execute([$uemail]);
+			$statement->execute([$token]);
 			$user = $statement->fetch();
 			if($user){
 				return false;
@@ -63,14 +63,16 @@
 		}
 
 		public function update_status($token_get){
+		    //echo $token_get;
 			$sql = "select * from puser where token = ?";
 			$statement = $this->pdo->prepare($sql);
 			$statement->execute([$token_get]);
 			$puser = $statement->fetch();
+			//var_export($puser);
 			$uemail = $puser['pemail'];
 			$password = $puser['password'];
 
-			echo $password." " .$uemail;
+			//echo $password." " .$uemail;
 			$sql = "update users set password=? where uemail = ?";
 			$statement = $this->pdo->prepare($sql);
 			$statement->execute([$password,$uemail]);

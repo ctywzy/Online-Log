@@ -17,11 +17,11 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/animate.css" type="text/css">
-    <link rel="stylesheet" href="css/style.css" type="text/css"
+    <link rel="stylesheet" href="css/style.css" type="text/css">
 </head>
 
 <body>
-    <?php 
+    <?php
       $version = 'v1';//v1: 7天 / v2: 15天  / v3: 40天
       $url = 'https://www.tianqiapi.com/api/?version=' . $version;
       $data = file_get_contents($url);

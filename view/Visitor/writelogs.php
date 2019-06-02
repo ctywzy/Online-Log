@@ -12,10 +12,13 @@
        <div class="navbar-header ">
           <a class="navbar-brand" href="#">Online Memo</a>
        </div>
-       <div class="navbar-header col-xs-offset-4 ">
+        <div class="navbar-header ">
+            <a class="navbar-brand" href="#"><?="用户名".$_SESSION['user']['uname']?></a>
+        </div>
+       <div class="navbar-header col-xs-offset-3 ">
           <a class="navbar-brand" href="#" style="color: red"><?= $getdate?></a>
        </div>
-       <div class="navbar-header col-xs-offset-1  " >
+       <div class="navbar-header col-xs-offset-1 " >
          <form action="/index.php?r=Visitor/home_page" method="POST" class="navbar-form navbar-left">
              <button type="submit" class="btn btn-info">返回日历</button>
           </form>    

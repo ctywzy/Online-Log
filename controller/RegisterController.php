@@ -34,8 +34,8 @@
 			if($bool == true){
 				$UserModel->insert_user($uemail, $uname, $password);
 				include("model/Smtp.php");
-		        $MailServer = "smtp.exmail.qq.com"; //SMTP服务器
-		        $MailPort = 25; //SMTP服务器端口
+		        $MailServer = "ssl://smtp.exmail.qq.com"; //SMTP服务器
+		        $MailPort = 465; //SMTP服务器端口
 		        $smtpMail = "wangzu@phpstudywzy.xyz"; //SMTP服务器的用户邮箱
 		        $smtpuser = "wangzu@phpstudywzy.xyz"; //SMTP服务器的用户帐号
 		        $smtppass = "Wzy02130.0"; //SMTP服务器的用户密码
@@ -45,7 +45,7 @@
 		        $mailType = "HTML"; //信件类型，文本:text；网页：HTML
 		        $emailTitle = "您好"; //邮件主题
 		        //$token = md5($uname.$password);
-		        $emailBody = "亲爱的".$uname."：<br/>感谢您在我站注册了新帐号。<br/>。<br/><a href='http://local.final.com/'>Welcome!</a><br/>如果以上链接无法点击，请将它复制到你的浏览器地址栏中进入访问。<br/>如果此次激活请求非你本人所发，请忽略本邮件。<br/><p style='text-align:right'>-------- 在线便签组 敬上</p>";
+		        $emailBody = "亲爱的".$uname."：<br/>感谢您在我站注册了新帐号。<br/>。<br/><a href='http://47.101.206.167/'>Welcome!</a><br/>如果以上链接无法点击，请将它复制到你的浏览器地址栏中进入访问。<br/>如果此次激活请求非你本人所发，请忽略本邮件。<br/><p style='text-align:right'>-------- 在线便签组 敬上</p>";
 
 		        $rs = $smtp->sendmail($uemail, $smtpMail, $emailTitle, $emailBody, $mailType);
 		        if($rs==true){
