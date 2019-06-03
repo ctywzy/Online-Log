@@ -54,7 +54,7 @@
                     <div class="header_section-container">
                         <div class="col-xs-6 col-sm-3">
                             <a class="site-logo" href="#">
-                                <img src="img/site-logo.png" height="39" width="125" alt="site logo"> 
+                                Online-Memo
                             </a>    
                         </div>
                         <div class="col-xs-0 col-sm-6">
@@ -186,12 +186,12 @@
                     <h2 class="title"><span>Our</span> Direction</h2>
                     <div class="row">
                         <div class="col-md-6 col-sm-12">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque commodi molestiae autem fugit consectetur dolor ullam illo ipsa numquam, quod iusto enim ipsum amet iusto amet consec.</p>
-                            <p class="pb35">Ferri graeco et vim. Adipisci mediocritatem vel ei, te singulis comprehensam per. Ut aeque animal cum. Dolores invenire facilisis ea qui. Ex eos saepe dissentiunt, at ius error vivendum. Pro graece constituto efficiendi an. Can was be image roles in song.</p>
+                            <p>备忘录意指任何一种能够帮助记忆,简单说明主题与相关事件的图片、文字或语音资料。过去人们使用的备忘录往往是纸质备忘录，随着科技的发展，备忘录已经有了相应移动端软件，以及WEB版的应用。</p>
+                            <p class="pb35">人类的大脑很强大，能存储很多东西，但让一个成年人回忆起所有童年的事情，很难。与其让大脑存放了这么多信息，不如把信息从脑海里拿出来记在纸上, 让大脑释放出来去思考如何做一件成功的事。传统的备忘就是用来帮助人们将脑海中的信息存储在纸上。</p>
                         </div>
                         <div class="col-md-6 col-sm-12">
-                            <p>Pri at adhuc utamur theophrastus, eam eu antiopam indoctum iracundia, eu per vero quas. Aeque sanctus urbanitas ad duo. Quis dictas epicuri vel ad, nec ne adhuc partem. Aliquando ullamcorper.</p>
-                            <p class="mb20">Definitionem et mea, ex sed meis ancillae sapientem. Commodo salutatus quo te, est nibh labores constituto id, sit ad tota decore omnium. Euripidis reprehendunt vel te, populo labores platonem ad quo nominavi pro.</p>
+                            <p>然而，传统的备忘录却无法起到区分事件重要性、合理分配时间以及督促人们将重要事件完成的作用。这就导致了即使事情被记录下来，工作和生活的效率却未必因此而提高，有限的时间和资源可能被分配到了不重要的事情上，重要的事却没有按期完成。</p>
+                            <p class="mb20">用我们这款在线备忘录，不仅可以做到对事情的记录，我们还会提醒你隔天即将发生的事情，帮助我们免除了许多烦恼</p>
                             <img src="img/content/signature.png" width="162" height="37" alt="">
                         </div>
                     </div>

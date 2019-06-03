@@ -13,28 +13,29 @@
           <a class="navbar-brand" href="#">Online Memo</a>
        </div>
         <div class="navbar-header ">
-            <a class="navbar-brand" href="#"><?="用户名".$_SESSION['user']['uname']?></a>
+            <a class="navbar-brand" href="#"><?="用户名:".$_SESSION['user']['uname']?></a>
         </div>
-       <div class="navbar-header col-xs-offset-3 ">
+       <div class="navbar-header">
           <a class="navbar-brand" href="#" style="color: red"><?= $getdate?></a>
        </div>
-       <div class="navbar-header col-xs-offset-1 " >
-         <form action="/index.php?r=Visitor/home_page" method="POST" class="navbar-form navbar-left">
-             <button type="submit" class="btn btn-info">返回日历</button>
-          </form>    
-       </div>
-       <div class="navbar-header" >
+
+        <div class="navbar-header navbar-right">
+            <form class="navbar-form navbar-right" role="search" action="/index.php?r=Visitor/do_search" method="POST">
+                <input type="text" class="form-control" placeholder="keyword"  name="keyword">
+                <input type="hidden" name="getdate" value=<?= $getdate?>>
+                <button type="submit" class="btn btn-info">查找备忘</button>
+            </form>
+        </div>
+       <div class="navbar-header navbar-right" >
          <form action="/index.php?r=login/login_page" method="POST" class="navbar-form navbar-left">
              <button type="submit" class="btn btn-info">切换用户</button>
           </form>    
        </div>
-       <div class="navbar-header">
-          <form class="navbar-form navbar-right" role="search" action="/index.php?r=Visitor/do_search" method="POST">
-                <input type="text" class="form-control" placeholder="keyword"  name="keyword">
-              <input type="hidden" name="getdate" value=<?= $getdate?>>
-             	<button type="submit" class="btn btn-info">查找备忘</button>
-          </form>    
-       </div>
+        <div class="navbar-header  navbar-right" >
+            <form action="/index.php?r=Visitor/home_page" method="POST" class="navbar-form navbar-left">
+                <button type="submit" class="btn btn-info">返回日历</button>
+            </form>
+        </div>
     </nav>
     <?php
       //echo $getdate;

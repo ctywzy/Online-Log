@@ -33,14 +33,10 @@
           <a class="navbar-brand" href="#">Online | Memo</a>
        </div>
        <div class="navbar-header ">
-            <a class="navbar-brand" href="#"><?="用户名".$_SESSION['user']['uname']?></a>
+            <a class="navbar-brand" href="#"><?="用户名:".$_SESSION['user']['uname']?></a>
         </div>
-        <div class="navbar-header" >
-            <div class="navbar-btn">
-                <button type="submit" class="btn btn-info" data-toggle="modal" data-target="#myUname">修改用户名</button>
-            </div>
-        </div>
-       <div class="navbar-header col-xs-offset-1">
+
+       <div class="navbar-header">
           <a class="navbar-brand" style="color: red"><?="今天是".$list[0]['date']?></a>
        </div>
        <div class="navbar-header">
@@ -55,17 +51,23 @@
        <div class="navbar-header " >
           <a class="navbar-brand"><?= $list[0]['win'][0] . ' ' . $list[0]['win_speed']?></a>
        </div>
-       <div class="navbar-header" align="right">
+        <div class="navbar-header navbar-right"">
+        <form class="navbar-form navbar-right" role="search" action="/#" method="POST">
+            <button type="submit" class="btn btn-info">切换用户</button>
+        </form>
+        </div>
+       <div class="navbar-header navbar-right"  >
          <form action="/index.php?r=Visitor/home_page" method="POST" class="navbar-form navbar-left">
              <button type="submit" class="btn btn-info">今天</button>
           </form>    
        </div>
-       <div class="navbar-header" align="right">
-          <form class="navbar-form navbar-right" role="search" action="/#" method="POST">
-             <button type="submit" class="btn btn-info">切换用户</button>
-          </form>    
-       </div>
-       <div class="navbar-header " align="right">
+
+        <div class="navbar-header navbar-right" >
+            <div class="navbar-btn">
+                <button type="submit" class="btn btn-info" data-toggle="modal" data-target="#myUname">修改用户名</button>
+            </div>
+        </div>
+       <div class="navbar-header  navbar-right"">
             <form action="/index.php?r=Visitor/to_weather" method="POST" class="navbar-form navbar-left">
                 <button type="submit" class="btn btn-info">一周天气状态</button>
             </form>

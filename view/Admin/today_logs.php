@@ -9,27 +9,29 @@
 </head>
 <body background ="#31C5BE">
   <nav class="navbar navbar-default" role="navigation">
-       <div class="navbar-header col-sm-2">
+       <div class="navbar-header">
           <a class="navbar-brand" href="#">Online | Memo</a>
        </div>
-      <div class="navbar-header col-sm-3">
-          <a class="navbar-brand" href="#">Admin</a>
+      <div class="navbar-header">
+          <a class="navbar-brand" href="#">Admin 用户</a>
 
       </div>
-      <div class="navbar-header col-sm-4">
-          <form action="/index.php?r=Admin/do_tip" method="POST" class="navbar-form navbar-left">
-              <button type="submit" class="btn btn-info">提醒</button>
+
+      <div class="navbar-header navbar-right">
+          <form action="/index.php?r=login/login_page" method="POST" class="navbar-form navbar-left">
+              <button type="submit" class="btn btn-info">退出登录</button>
           </form>
       </div>
-       <div class="navbar-header col-sm-1">
+       <div class="navbar-header navbar-right">
          <form action="/index.php?r=Admin/home_page" method="POST" class="navbar-form navbar-left">
              <button type="submit" class="btn btn-info">用户列表</button>
           </form>    
        </div>
 
-      <div class="navbar-header col-sm-1">
-          <form action="/index.php?r=login/login_page" method="POST" class="navbar-form navbar-left">
-              <button type="submit" class="btn btn-info">退出登录</button>
+
+      <div class="navbar-header navbar-right">
+          <form action="/index.php?r=Admin/do_tip" method="POST" class="navbar-form navbar-left">
+              <button type="submit" class="btn btn-danger">提醒</button>
           </form>
       </div>
     </nav>
