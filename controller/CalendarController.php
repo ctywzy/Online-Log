@@ -16,7 +16,7 @@
 			$week=date("w",$noe); 
 			$days=date("t",$noe);
 			$day=date("d");
-			include('/view/Visitor/Calendar_show.php');
+			include('view/Visitor/Calendar_show.php');
 		}
 
 		public function last_year(){
@@ -27,7 +27,7 @@
 			$week=date("w",$noe); 
 			$days=date("t",$noe);
 			$day=date("d");
-			include('/view/Visitor/Calendar_show.php');
+			include('view/Visitor/Calendar_show.php');
 		}
 
 		public function next_month(){
@@ -43,7 +43,7 @@
 			$week=date("w",$noe); 
 			$days=date("t",$noe);
 			$day=date("d");
-			include('/view/Visitor/Calendar_show.php');
+			include('view/Visitor/Calendar_show.php');
 
 
 		}
@@ -56,7 +56,7 @@
 			$week=date("w",$noe); 
 			$days=date("t",$noe);
 			$day=date("d");
-			include('/view/Visitor/Calendar_show.php');
+			include('view/Visitor/Calendar_show.php');
 		}
 		
 	}
